@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+import debug_toolbar
+from GYM.views import holi
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('playground/',include('playground.urls'))
+    path('playground/',include('playground.urls')),
+    path('holi/<int:edadActual>/<int:anio>',holi),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
